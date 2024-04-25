@@ -6,6 +6,7 @@ CONFIG -= qt
 SOURCES += \
         Aseo.cpp \
         Comestible.cpp \
+        CuentaCorriente.cpp \
         Electrodomesticos.cpp \
         Tienda.cpp \
         main.cpp
@@ -13,5 +14,6 @@ SOURCES += \
 HEADERS += \
     Aseo.h \
     Comestible.h \
+    CuentaCorriente.h \
     Electrodomesticos.h \
     Tienda.h
