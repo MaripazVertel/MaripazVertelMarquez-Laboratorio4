@@ -38,6 +38,7 @@ public:
     void consultarCuenta();
     bool saldoNegativo();
     void cambiarClave(int numeroIdentificacion, int claveAnterior, int nuevaClave);
+
 };
 
 #endif

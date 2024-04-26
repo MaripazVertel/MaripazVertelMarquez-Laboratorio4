@@ -1,7 +1,9 @@
 #include "Tienda.h"
 #include <iostream>
 #include <iomanip>
+#include"CuentaCorriente.h"
 using namespace std;
+
 
 Tienda::Tienda() {
     comestible = nullptr;
@@ -54,7 +56,6 @@ bool Tienda::realizarCompra() {
             break;
         }
 
-
         int cantidad;
         cout << "Ingrese la cantidad que desea comprar: ";
         cin >> cantidad;
@@ -75,7 +76,7 @@ bool Tienda::realizarCompra() {
     return true;
 }
 
-void Tienda::imprimirRecibo() {
+double Tienda::imprimirRecibo() {
     cout << "Recibo de Compra:" << endl;
     cout << left << setw(20) << "Nombre" << setw(10) << "Precio" << setw(10) << "Cantidad" << endl;
 
@@ -95,4 +96,29 @@ void Tienda::imprimirRecibo() {
     }
 
     cout << "Total a Pagar: $" << total << endl;
+    return total;
+
 }
+
+
+void Tienda::pagar(CuentaCorriente& cuenta) {
+    int documento, clave;
+    cout << "Ingrese su numero de documento: ";
+    cin >> documento;
+    cout << "Ingrese su clave de cuenta: ";
+    cin >> clave;
+
+    if (documento == cuenta.getNumeroIdentificacion() && clave == cuenta.getClave()) {
+        double total = imprimirRecibo();
+        if (total <= cuenta.getSaldo()) {
+            cuenta.setSaldo(cuenta.getSaldo() - total);
+            cout << "Compra y pago realizados con exito. Su saldo actual es: $" << cuenta.getSaldo() << endl;
+        } else {
+            cout << "Lo sentimos, su saldo no es suficiente para realizar esta compra. Su saldo actual es: $" << cuenta.getSaldo() << endl;
+        }
+    } else {
+        cout << "Los datos de acceso son incorrectos." << endl;
+    }
+}
+
+

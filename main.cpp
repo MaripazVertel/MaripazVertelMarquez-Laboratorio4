@@ -59,7 +59,8 @@ int main() {
         cout << "5. Saldo negativo/positivo" << endl;
         cout << "6. Mostrar productos en la tienda" << endl;
         cout << "7. Realizar compra" <<endl;
-        cout << "8. Salir" << endl;
+        cout << "8. Pagar la compra"<< endl;
+        cout << "9. Salir" << endl;
         cout << "Elija una opcion: ";
         cin >> option;
 
@@ -105,6 +106,9 @@ int main() {
                 tienda.imprimirRecibo();
                 break;
             case 8:
+                tienda.pagar(cuenta);
+                break;
+            case 9:
                 cout << "Adios!" << endl;
                 break;
             default:

@@ -4,6 +4,7 @@
 #include "Comestible.h"
 #include "Electrodomesticos.h"
 #include "Aseo.h"
+#include "CuentaCorriente.h"
 using namespace std;
 class Tienda {
 private:
@@ -18,7 +19,9 @@ public:
     void agregarProductoAseo(string nombre, string marca, int precio, int cantidadInventario, int descuento, string material);
     void mostrarProductos();
     bool realizarCompra();
-    void imprimirRecibo();
+    double imprimirRecibo();
+    void pagar(CuentaCorriente& cuenta);
 };
+
 
 #endif // TIENDA_H
